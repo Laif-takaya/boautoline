@@ -10,6 +10,7 @@ def highLow(date):
     stop=date[0:2]
     up_down=date[-2:]
 
+
     driver = webdriver.Chrome()
 
     # 2.操作するページを開く
