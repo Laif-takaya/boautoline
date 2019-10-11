@@ -10,8 +10,12 @@ def highLow(date):
     stop=date[0:2]
     up_down=date[-2:]
 
-
-    driver = webdriver.Chrome()
+    driver_path = '/app/.chromedriver/bin/chromedriver'
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    #driverに設定 ※optionsを指定しないとheadlessにならないので注意
+    driver = webdriver.Chrome(options=options, executable_path=driver_path)
+    #driver = webdriver.Chrome()
 
     # 2.操作するページを開く
     driver.get('https://demotrade.highlow.com/')
@@ -94,5 +98,7 @@ def highLow(date):
         result ="マーチンしました"
     else:
         result ="かち"
+
+    driver.quit()
 
     return result
