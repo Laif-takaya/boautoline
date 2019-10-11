@@ -1,1 +1,1 @@
-web: python lots_calculation.py
+web: python main.py
