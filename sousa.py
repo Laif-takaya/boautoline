@@ -16,7 +16,7 @@ def highLow(date):
     #driverに設定 ※optionsを指定しないとheadlessにならないので注意
     driver = webdriver.Chrome(options=options, executable_path=driver_path)
     #driver = webdriver.Chrome()
-
+    driver.set_window_size(1280, 720)
     # 2.操作するページを開く
     driver.get('https://demotrade.highlow.com/')
     # 基本設定はここまで。↑は使い回し可能。ここから下は、やりたい動作によって増える
@@ -55,6 +55,8 @@ def highLow(date):
         driver.find_element_by_xpath('//*[@id="3408"]').click() #NZD/JPY
     else:
         result ="通過ペアは存在しません"
+        driver.quit()
+        return result
 
     driver.execute_script("window.scrollTo(0, 400)")
     sleep(2)
