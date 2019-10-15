@@ -10,9 +10,9 @@ def highLow(date):
     stop=date[0:2]
     up_down=date[-2:]
     try:
-        require 'selenium-webdriver'
-        caps = Selenium::WebDriver::Remote::Capabilities.chrome("chromeOptions" => {binary: "/app/.apt/usr/bin/google-chrome", args: ["--headless"]})
-        driver = Selenium::WebDriver.for :chrome, desired_capabilities: caps
+        options = Options()
+        options.add_argument('--headless')
+        driver = webdriver.Chrome(executable_path='/usr/local/bin/chromedriver',chrome_options=options)
         #driver = webdriver.Chrome()
         driver.set_window_size(1280, 720)
         # 2.操作するページを開く
@@ -102,7 +102,7 @@ def highLow(date):
         driver.quit()
 
         return result
-     except:
+    except:
         result ="errow"
         driver.quit()
         return result
