@@ -18,7 +18,6 @@ def highLow(date):
         options.add_argument('--headless')
         #driverに設定 ※optionsを指定しないとheadlessにならないので注意
         driver = webdriver.Chrome(options=options, executable_path=driver_path)
-        
         #driver = webdriver.Chrome()
         driver.set_window_size(1280, 720)
         # 2.操作するページを開く
