@@ -10,7 +10,6 @@ from linebot.models import (
     MessageEvent, TextMessage, TextSendMessage,
 )
 import os
-import sousa
 
 app = Flask(__name__)
 
@@ -41,14 +40,39 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    date = event.message.text
+    req_message=event.message.text
 
-    # アイテム取得関数を呼び出し
-    result = sousa.highLow(date)
+    currency_pair=req_message[:7]
+    stop=req_message[0:2]
+    up_down=req_message[-2:]
+    if currency_pair=="USD/JPY":
+          a="ドル円"
+    elif currency_pair=="EUR/JPY":
+          a="ユーロ円"
+    elif currency_pair=="EUR/USD":
+          a="ユーロドル"
+    elif currency_pair=="AUD/JPY":
+          a="豪円"
+    elif currency_pair=="AUD/USD":
+          a="豪ドル"
+    elif currency_pair=="GBP/JPY":
+          a="ポンド円"
+    elif currency_pair=="NZD/JPY":
+          a="ニュージランド円"
+    else:
+          a="通過ペアは存在しません"
 
+    if up_down=="ハイ":
+          c="上"
+    elif up_down=="ロー":
+          c="下"
+    else:
+          c="不明"
+
+    text_back=a+c
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=result))
+        TextSendMessage(text=text_back))
 
 
 if __name__ == "__main__":
