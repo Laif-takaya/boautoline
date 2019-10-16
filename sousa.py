@@ -1,6 +1,7 @@
 # PythonでSeleniumのwebdriverモジュールをインポート
 import re
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 import datetime
 from time import sleep
 # 1.操作するブラウザを開く
@@ -10,11 +11,11 @@ def highLow(date):
     stop=date[0:2]
     up_down=date[-2:]
     try:
-        driver_path = "/app/.apt/usr/bin/google-chrome"
-        options = webdriver.ChromeOptions()
+        options = Options()
+        options.binary_location = '/app/.apt/usr/bin/google-chrome'
         options.add_argument('--headless')
-        #driverに設定 ※optionsを指定しないとheadlessにならないので注意
-        driver = webdriver.Chrome(options=options, executable_path=driver_path)
+        options.add_argument('--disable-gpu')
+        driver = webdriver.Chrome(chrome_options=options)
         #driver = webdriver.Chrome()
         driver.set_window_size(1280, 720)
         # 2.操作するページを開く
