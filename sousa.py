@@ -24,9 +24,19 @@ def highLow(date):
         driver.get('https://demotrade.highlow.com/')
         # 基本設定はここまで。↑は使い回し可能。ここから下は、やりたい動作によって増える
         sleep(2)
+        # 3.操作する要素を指定
+        # 4.その要素を操作する
+        driver.find_element_by_link_text('クイックデモ').click()
+        sleep(5)
+        driver.find_element_by_link_text('取引を始める。').click()
+        sleep(2)
+        account_balance = driver.find_element_by_id("balance").text
+        ab = int(re.sub("\\D", "", account_balance))
+        ab=ab//10
+        if ab>=200000:
+            ab=200000
 
-        result ="かち"
-
+        result =currency_pair+up_down
         driver.quit()
 
         return result
