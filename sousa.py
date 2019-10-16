@@ -10,9 +10,11 @@ def highLow(date):
     stop=date[0:2]
     up_down=date[-2:]
     try:
-        options = Options()
+        driver_path = "/app/.apt/usr/bin/google-chrome"
+        options = webdriver.ChromeOptions()
         options.add_argument('--headless')
-        driver = webdriver.Chrome(executable_path='/usr/local/bin/chromedriver',chrome_options=options)
+        #driverに設定 ※optionsを指定しないとheadlessにならないので注意
+        driver = webdriver.Chrome(options=options, executable_path=driver_path)
         #driver = webdriver.Chrome()
         driver.set_window_size(1280, 720)
         # 2.操作するページを開く
