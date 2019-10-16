@@ -1,7 +1,4 @@
 # PythonでSeleniumのwebdriverモジュールをインポート
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-
 # 1.操作するブラウザを開く
 #WebDriverを格納しているディレクトリを指定
 def highLow(date):
