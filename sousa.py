@@ -16,7 +16,6 @@ def highLow(date):
         driver_path = '/app/.chromedriver/bin/chromedriver'
         options = webdriver.ChromeOptions()
         options.add_argument('--headless')
-        options.add_argument('--lang=ja-JP')
         #driverに設定 ※optionsを指定しないとheadlessにならないので注意
         driver = webdriver.Chrome(options=options, executable_path=driver_path)
         #driver = webdriver.Chrome()
@@ -27,7 +26,7 @@ def highLow(date):
         sleep(2)
         # 3.操作する要素を指定
         # 4.その要素を操作する
-        driver.find_element_by_link_text('クイックデモ').click()
+        driver.find_element_by_xpath('//*[@id="header"]/div/div/div/div/div/span/span/a[1]/i').click()
 
         result ="Y"
 
