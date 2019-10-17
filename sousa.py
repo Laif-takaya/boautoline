@@ -36,7 +36,7 @@ def highLow(date):
         if ab>=200000:
             ab=200000
 
-        result =currency_pair+up_down
+        result =currency_pair
         driver.quit()
 
         return result
