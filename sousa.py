@@ -16,7 +16,6 @@ def highLow(date):
         driver_path = '/app/.chromedriver/bin/chromedriver'
         options = webdriver.ChromeOptions()
         options.add_argument('--headless')
-        options.add_argument('--disable-gpu')
         #driverに設定 ※optionsを指定しないとheadlessにならないので注意
         driver = webdriver.Chrome(options=options, executable_path=driver_path)
         #driver = webdriver.Chrome()
