@@ -26,7 +26,7 @@ def highLow(date):
         sleep(2)
         # 3.操作する要素を指定
         # 4.その要素を操作する
-        driver.find_element_by_link_text('クイックデモ').click()
+        
 
 
         result ="currency_pair"
