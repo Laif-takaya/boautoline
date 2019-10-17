@@ -27,14 +27,7 @@ def highLow(date):
         # 3.操作する要素を指定
         # 4.その要素を操作する
         driver.find_element_by_link_text('クイックデモ').click()
-        sleep(5)
-        driver.find_element_by_link_text('取引を始める。').click()
-        sleep(2)
-        account_balance = driver.find_element_by_id("balance").text
-        ab = int(re.sub("\\D", "", account_balance))
-        ab=ab//10
-        if ab>=200000:
-            ab=200000
+
 
         result ="currency_pair"
         driver.quit()
