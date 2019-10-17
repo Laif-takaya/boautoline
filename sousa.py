@@ -23,10 +23,10 @@ def highLow(date):
         # 2.操作するページを開く
         driver.get('https://demotrade.highlow.com/')
         # 基本設定はここまで。↑は使い回し可能。ここから下は、やりたい動作によって増える
-        sleep(10)
+        sleep(2)
         # 3.操作する要素を指定
         # 4.その要素を操作する
-        driver.find_element_by_xpath('//*[@id="header"]/div/div/div/div/div/span/span/a[1]/i').click()
+        #driver.find_element_by_xpath('//*[@id="header"]/div/div/div/div/div/span/span/a[1]/i').click()
 
         result ="Y"
 
