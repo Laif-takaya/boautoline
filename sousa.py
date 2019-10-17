@@ -16,6 +16,8 @@ def highLow(date):
         driver_path = '/app/.chromedriver/bin/chromedriver'
         options = webdriver.ChromeOptions()
         options.add_argument('--headless')
+        options.add_argument("--user-agent=Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36")
+        options.add_argument('--window-size=1280,1024')
         #driverに設定 ※optionsを指定しないとheadlessにならないので注意
         driver = webdriver.Chrome(options=options, executable_path=driver_path)
         #driver = webdriver.Chrome()
