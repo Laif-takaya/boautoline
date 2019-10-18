@@ -19,14 +19,14 @@ def highLow(date):
         options.add_argument('--disable-gpu')
         #driverに設定 ※optionsを指定しないとheadlessにならないので注意
         driver = webdriver.Chrome(options=options, executable_path=driver_path)
-        driver.set_window_size(1280, 720)
+        driver.set_window_size(1920, 1080)
         # 2.操作するページを開く
-        driver.get('https://www.rakuten-sec.co.jp/web/fund/find/search/result.html')
+        driver.get('https://demotrade.highlow.com/')
         # 基本設定はここまで。↑は使い回し可能。ここから下は、やりたい動作によって増える
         sleep(2)
         # 3.操作する要素を指定
         # 4.その要素を操作する
-        driver.find_element_by_xpath('//*[@id="tab2"]').click()
+        driver.find_element_by_xpath('//*[@id="header"]/div/div/div/div/div/span/span/a[1]/i').click()
 
         result ="Yes"
 
