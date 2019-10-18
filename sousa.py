@@ -14,7 +14,6 @@ def highLow(date):
     try:
         # chromedriverのPATHを指定(herokuにおけるパスを指定しています)
         driver_path = '/app/.chromedriver/bin/chromedriver'
-        options.binary_location = driver_path
         options = webdriver.ChromeOptions()
         options.add_argument('--headless')
         options.add_argument('--disable-gpu')
@@ -22,12 +21,12 @@ def highLow(date):
         driver = webdriver.Chrome(options=options, executable_path=driver_path)
         driver.set_window_size(1280, 720)
         # 2.操作するページを開く
-        driver.get('https://demotrade.highlow.com/')
+        driver.get('https://www.rakuten-sec.co.jp/web/fund/find/search/result.html')
         # 基本設定はここまで。↑は使い回し可能。ここから下は、やりたい動作によって増える
         sleep(2)
         # 3.操作する要素を指定
         # 4.その要素を操作する
-        driver.find_element_by_xpath('//*[@id="header"]/div/div/div/div/div/span/span/a[1]/i').click()
+        driver.find_element_by_xpath('//*[@id="tab2"]').click()
 
         result ="Yes"
 
