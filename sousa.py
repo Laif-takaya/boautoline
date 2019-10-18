@@ -14,6 +14,7 @@ def highLow(date):
     try:
         # chromedriverのPATHを指定(herokuにおけるパスを指定しています)
         driver_path = '/app/.chromedriver/bin/chromedriver'
+        options.binary_location = driver_path
         options = webdriver.ChromeOptions()
         options.add_argument('--headless')
         options.add_argument('--disable-gpu')
