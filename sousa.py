@@ -21,12 +21,12 @@ def highLow(date):
         driver = webdriver.Chrome(options=options, executable_path=driver_path)
         driver.set_window_size(1280, 720)
         # 2.操作するページを開く
-        driver.get('https://trade.highlow.com')
+        driver.get('https://demotrade.highlow.com/Trading')
         # 基本設定はここまで。↑は使い回し可能。ここから下は、やりたい動作によって増える
-        sleep(2)
+        sleep(10)
         # 3.操作する要素を指定
         # 4.その要素を操作する
-        driver.find_element_by_xpath('//*[@id="header"]/div/div/div/div/div/span/span/a[1]/i').click()
+        driver.find_element_by_xpath('//*[@id="account-balance"]/div[2]/div/div[1]/a').click()
 
         result ="Ye"
 
